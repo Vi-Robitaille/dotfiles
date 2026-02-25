@@ -11,39 +11,18 @@
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
       myHosts = {
-        "lemp10" = {
+        "pop-os" = {
           system = "x86_64-linux";
-          hostSpecificNix = ./nixos/hosts/lemp10/configuration.nix;
-          hostSpecificHomeConfig = ./home-manager/hosts/lemp10.nix;
+          hostSpecificHomeConfig = ./home-manager/hosts/pop-os.nix;
           enableGui = true;
-          enableSystem = true;
-          defaultUsername = "yutkat";
-        };
-        "X1C10" = {
-          system = "x86_64-linux";
-          hostSpecificNix = ./nixos/hosts/X1C10/configuration.nix;
-          enableGui = false;
           enableSystem = false;
-          defaultUsername = "kata";
+          defaultUsername = "vi";
         };
-        "test" = {
+        "pop-os-cli" = {
           system = "x86_64-linux";
           enableGui = false;
           enableSystem = false;
-          defaultUsername = "test";
-        };
-        "system-test" = {
-          system = "x86_64-linux";
-          enableGui = true;
-          enableSystem = true;
-          defaultUsername = "test";
-          hostSpecificNix = { };
-        };
-        "container" = {
-          system = "x86_64-linux";
-          enableGui = false;
-          enableSystem = false;
-          defaultUsername = "root";
+          defaultUsername = "vi";
         };
       };
       # Read username from environment variable, fallback to default
